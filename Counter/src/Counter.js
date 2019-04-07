@@ -4,9 +4,9 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
   state = {
-    number: this.props.number,
-
+    number: JSON.parse(localStorage.getItem('counter')) || this.props.number,
   }
+
 
   inc1 = () => {
     this.setState({ number: this.state.number + 1 })
@@ -25,7 +25,12 @@ class Counter extends Component {
     this.setState({ number: this.props.number })
   }
 
+  saveNumber(){
+    localStorage.setItem('counter', JSON.stringify(this.state.number))
+  }
+
   render() {
+    this.saveNumber()
     return (
       <div>
         <div>
