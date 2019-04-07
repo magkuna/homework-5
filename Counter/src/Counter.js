@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/Button'
 
 
 
@@ -25,7 +26,7 @@ class Counter extends Component {
     this.setState({ number: this.props.number })
   }
 
-  saveNumber(){
+  saveNumber() {
     localStorage.setItem('counter', JSON.stringify(this.state.number))
   }
 
@@ -39,35 +40,45 @@ class Counter extends Component {
           </h1>
         </div>
         <div>
-          <button
-            onClick={this.inc1}>
+          <Button
+            variant={'contained'}
+            color={'primary'}
+            onClick={this.inc1}
+            >
             +1
-        </button>
-        </div>
-        <div>
-          <button
-            onClick={this.dec1}>
+        </Button>
+          <Button
+            variant={'contained'} 
+            color={'secondary'}
+            onClick={this.dec1}
+            >
             -1
-        </button>
+        </Button>
         </div>
         <div>
-          <button
-            onClick={this.inc2}>
+          <Button
+            variant={'contained'} 
+            color={'primary'}
+            onClick={this.inc2}
+            >
             +5
-        </button>
-        </div>
-        <div>
-          <button
-            onClick={this.dec2}>
+        </Button>
+          <Button
+          variant={'contained'} 
+          color={'secondary'}
+            onClick={this.dec2}
+            >
             -5
-        </button>
+        </Button>
         </div>
-        <div>
-          <button
-            onClick={this.reset}>
+        
+          <Button
+            variant={'contained'}
+            onClick={this.reset}
+            >
             RESET
-        </button>
-        </div>
+        </Button>
+       
       </div>
     );
   }
